@@ -30,8 +30,8 @@ void DataLayer<Dtype>::DataLayerSetUp(const vector<Blob<Dtype>*>& bottom,
   cursor_.reset(db_->NewCursor());
 
   // Move to start position
-  LOG(INFO) << "Move to Start Position: " << cursor_->key();
   cursor_->Find(this->layer_param_.data_param().start());
+  LOG(INFO) << "Move to Start Position: " << cursor_->key();
 
   if (this->layer_param_.data_param().rand_skip() ||
       this->layer_param_.data_param().skip()) {
